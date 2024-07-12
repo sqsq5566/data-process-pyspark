@@ -9,7 +9,7 @@ upload：从 Backblaze 直接解压zip然后上传到aws的s3bucket
 数据量太大了，需要自己手动的在 upload_file_to_s3 中设置某个季度的下载链接,当然也可以用数组去把所有的下载链接放上去，但这样的话会耗时很久。
 
 Process：数据分析（daily和annual的计算）
-这块分为了两个scripy，分别是 daily_data_analysis.py 和 annual_data_analysis.py.
+这块分为了两个script，分别是 daily_data_analysis.py 和 annual_data_analysis.py.
 将 s3 中data目录下的 csv 文件读取进行计算，最后得到daily和annul的csv结果，以s3a://47-data-test/daily-analysis.csv，s3a://47-data-test/annual-analysis.csv形式存储在s3中
 待改进
 1. 这两个脚本直接运行诗会报错的，需要 运行spark-submit --packages org.apache.hadoop:hadoop-aws:3.3.4  脚本名称  这个命令添加hadoop-aws依赖才可以运行成功，应该是可以直接在程序
