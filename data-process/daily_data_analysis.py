@@ -17,4 +17,4 @@ df_result=spark.sql("select date,count(serial_number) as drive_count ,sum(failur
 
 s3_destination_path = "s3a://47-data-test/daily-analysis.csv"
 df_result.write.mode("overwrite").format("csv").option("header","true").save(s3_destination_path)
-
+spark.stop()
